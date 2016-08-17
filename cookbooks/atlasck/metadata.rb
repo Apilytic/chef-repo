@@ -7,3 +7,4 @@ long_description 'Installs/Configures atlasck'
 version '0.1.0'
 
 depends 'apt', '~> 4.0.2'
+depends 'mysql', '~> 8.0'
