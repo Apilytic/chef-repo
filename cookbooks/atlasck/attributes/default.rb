@@ -3,5 +3,6 @@
 
 # Set a default name
 default['atlasck']['secret_path'] = '/etc/chef/encrypted_data_bag_secret'
+default['atlasck']['mysql']['debian']['version'] = '5.5.50-0+deb8u1'
 
 # For further information, see the Chef documentation (https://docs.chef.io/essentials_cookbook_attribute_files.html).
