@@ -28,3 +28,7 @@ template '/root/.my.cnf' do
               )
     mode 0600
 end
+
+execute 'disable system mysql servce' do
+  command 'update-rc.d mysql disable'
+end
