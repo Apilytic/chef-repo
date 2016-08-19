@@ -12,3 +12,5 @@ end
 
 include_recipe 'atlasck::database'
 include_recipe 'atlasck::webserver'
+
+package 'htop'
