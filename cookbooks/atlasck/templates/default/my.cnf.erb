@@ -1,7 +1,7 @@
 [client]
 default-character-set          = utf8
-port                           = 3306
-socket                         = /run/mysql-atlasck/mysqld.sock
+port                           = <%= @port ||= 3306 %>
+socket                         = /run/mysql-<%= @instance %>/mysqld.sock
 <% if @password -%>
 password                       = "<%= @password %>"
 <% end -%>

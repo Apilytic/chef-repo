@@ -10,28 +10,43 @@ password_secret = Chef::EncryptedDataBagItem.load_secret("#{node['atlasck']['sec
 root_password_data_bag_item = Chef::EncryptedDataBagItem.load('passwords', 'mysql_root_password',
                                                               password_secret)
 
-mysql_service 'atlasck' do
-    port '3306'
-    initial_root_password root_password_data_bag_item['password']
-    package_version mysql_version
-    action [:create, :start]
-end
+%w(atlasck default).each do |service_name|
+    port = service_name == 'atlasck' ? 3306 : 3307
 
-mysql_client 'atlasck' do
-    package_version mysql_version
-end
+    mysql_service service_name do
+        port port
+        initial_root_password root_password_data_bag_item['password']
+        package_version mysql_version
+        action [:create, :start]
+    end
 
-mysql_config 'extra' do
-    instance 'atlasck'
-    source 'extra.cnf.erb'
-    action :create
-    notifies :restart, 'mysql_service[atlasck]'
+    mysql_client service_name do
+        package_version mysql_version
+    end
+
+    mysql_config 'extra' do
+        instance service_name
+        source 'extra.cnf.erb'
+        action :create
+        notifies :restart, "mysql_service[#{service_name}]"
+    end
 end
 
 template '/root/.my.cnf' do
     source 'my.cnf.erb'
     variables(
-                  password: root_password_data_bag_item['password']
+                  password: root_password_data_bag_item['password'],
+                  instance: 'atlasck'
+              )
+    mode 0600
+end
+
+template '/root/.my-default.cnf' do
+    source 'my.cnf.erb'
+    variables(
+                  password: root_password_data_bag_item['password'],
+                  instance: 'default',
+                  port: 3307
               )
     mode 0600
 end
