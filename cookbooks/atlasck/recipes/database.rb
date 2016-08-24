@@ -24,31 +24,23 @@ root_password_data_bag_item = Chef::EncryptedDataBagItem.load('passwords', 'mysq
         package_version mysql_version
     end
 
-    mysql_config 'extra' do
+    mysql_config "extra-#{service_name}" do
         instance service_name
         source 'extra.cnf.erb'
         action :create
         notifies :restart, "mysql_service[#{service_name}]"
     end
-end
 
-template '/root/.my.cnf' do
-    source 'my.cnf.erb'
-    variables(
-                  password: root_password_data_bag_item['password'],
-                  instance: 'atlasck'
-              )
-    mode 0600
-end
-
-template '/root/.my-default.cnf' do
-    source 'my.cnf.erb'
-    variables(
-                  password: root_password_data_bag_item['password'],
-                  instance: 'default',
-                  port: 3307
-              )
-    mode 0600
+    template_name = service_name == 'atlasck' ? '.my.cnf' : '.my-default.cnf'
+    template "/root/#{template_name}" do
+        source 'my.cnf.erb'
+        variables(
+                      password: root_password_data_bag_item['password'],
+                      instance: service_name,
+                      port: port
+                  )
+        mode 0600
+    end
 end
 
 execute 'disable system mysql servce' do
