@@ -6,8 +6,8 @@
 
 include_recipe 'lytc::uwsgi'
 
-cookbook_file '/etc/init/zikraft.conf' do
-    source 'init/zikraft.conf'
+cookbook_file '/etc/systemd/system/zikraft.service' do
+    source 'init/zikraft.service'
 end
 
 directory '/home/www/moin' do
@@ -22,3 +22,6 @@ file '/home/www/moin/zikraft.sock' do
     mode 00660
     action :create_if_missing
 end
+
+# provision virtual env
+# install depedencies for zikraft
