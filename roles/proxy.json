@@ -1,0 +1,13 @@
+{
+    "name": "proxy",
+    "description": "Proxy configuration and setup for individual apps",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "default_attributes": {},
+    "override_attributes": {},
+    "run_list": [
+        "recipe[lytc::proxy]",
+        "recipe[atlasck::proxy]",
+        "recipe[zikraft::proxy]"
+    ]
+}
