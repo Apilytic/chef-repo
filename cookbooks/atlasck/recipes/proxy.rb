@@ -6,13 +6,23 @@
 
 package 'nginx'
 
-template '/etc/nginx/sites-available/tomcat' do
-    source 'tomcat.erb'
+%w(tomcat atlasck.conf).each do|site|
+    cookbook_file "/etc/nginx/sites-available/#{site}" do
+        source site
+    end
+
+    link "/etc/nginx/sites-enabled/#{site}" do
+        to "/etc/nginx/sites-available/#{site}"
+        notifies :reload, 'service[nginx]'
+    end
 end
 
-link '/etc/nginx/sites-enabled/tomcat' do
-    to '/etc/nginx/sites-available/tomcat'
-    notifies :reload, 'service[nginx]'
+cookbook_file '/etc/nginx/htpasswd' do
+    source 'htpasswd'
+end
+
+cookbook_file '/etc/nginx/conf.d/limit_req_zone.conf' do
+    source 'limit_req_zone.conf'
 end
 
 service 'nginx' do
