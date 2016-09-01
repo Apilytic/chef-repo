@@ -6,3 +6,4 @@
 
 include_recipe 'atlasck::database'
 include_recipe 'atlasck::webserver'
+include_recipe 'atlasck::proxy'
