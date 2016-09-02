@@ -8,6 +8,7 @@
     "run_list": [
         "recipe[lytc::proxy]",
         "recipe[atlasck::proxy]",
-        "recipe[zikraft::proxy]"
+        "recipe[zikraft::proxy]",
+        "recipe[wiki::proxy]"
     ]
 }

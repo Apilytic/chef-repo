@@ -17,3 +17,5 @@ tomcat_service 'atlasck' do
                 'CATALINA_OPTS' =>
       '-server -Xms64m -Xmx128m -XX:MaxPermSize=96m -XX:+DisableExplicitGC' }]
 end
+
+#TODO logrotate

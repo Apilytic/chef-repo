@@ -16,3 +16,5 @@ package 'vim'
 file '/root/.vimrc' do
   content 'syntax on'
 end
+
+#TODO swap configuration
