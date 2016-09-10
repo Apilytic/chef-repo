@@ -24,4 +24,12 @@ file '/home/www/moin/wiki.sock' do
     action :create_if_missing
 end
 
-#TODO logrotate wiki/data/event-log
+logrotate_app 'wiki' do
+    cookbook 'logrotate'
+    path ['/home/www/moin/wiki/data/edit-log',
+          '/home/www/moin/wiki/data/event-log']
+    frequency 'daily'
+    options %w(missingok compress delaycompress sharedscripts notifempty)
+    rotate 30
+    create '0644 www-data www-data'
+end
