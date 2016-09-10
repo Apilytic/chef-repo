@@ -18,4 +18,13 @@ tomcat_service 'atlasck' do
       '-server -Xms64m -Xmx128m -XX:MaxPermSize=96m -XX:+DisableExplicitGC' }]
 end
 
-#TODO logrotate
+logrotate_app 'tomcat_atlasck' do
+    cookbook 'logrotate'
+    path ['/usr/local/apache-tomcat/logs/catalina.out',
+          '/usr/local/apache-tomcat/logs/*.log',
+          '/usr/local/apache-tomcat/logs/*.txt']
+    frequency 'daily'
+    options %w(missingok compress delaycompress sharedscripts notifempty)
+    rotate 30
+    create '0644 tomcat_atlasck tomcat_atlasck'
+end
