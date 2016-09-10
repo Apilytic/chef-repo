@@ -1,6 +1,6 @@
 name 'atlasck'
 maintainer 'gogoluxecs'
-maintainer_email 'georgi.lambov@gmail.com'
+maintainer_email 'gogo_luxecs@yahoo.com'
 license 'GPL'
 description 'Installs/Configures atlasck'
 long_description 'Installs/Configures atlasck'
