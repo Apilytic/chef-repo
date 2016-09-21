@@ -8,3 +8,4 @@ version '0.1.0'
 
 depends 'apt', '~> 4.0.2'
 depends 'logrotate', '~> 1.9.2'
+depends 'mongodb', '~> 0.16.2'
