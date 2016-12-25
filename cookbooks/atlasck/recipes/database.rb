@@ -6,7 +6,7 @@
 
 mysql_version = '5.5.50-0+deb8u1'
 
-password_secret = Chef::EncryptedDataBagItem.load_secret("#{node['atlasck']['secret_path']}")
+password_secret = Chef::EncryptedDataBagItem.load_secret((node['atlasck']['secret_path']).to_s)
 root_password_data_bag_item = Chef::EncryptedDataBagItem.load('passwords', 'mysql_root_password',
                                                               password_secret)
 
@@ -35,10 +35,10 @@ root_password_data_bag_item = Chef::EncryptedDataBagItem.load('passwords', 'mysq
     template "/root/#{template_name}" do
         source 'my.cnf.erb'
         variables(
-                      password: root_password_data_bag_item['password'],
-                      instance: service_name,
-                      port: port
-                  )
+            password: root_password_data_bag_item['password'],
+            instance: service_name,
+            port: port
+        )
         mode 0600
     end
 end
@@ -63,9 +63,9 @@ mysql_connection_info = {
 }
 
 atlasck_password_data_bag_item = Chef::EncryptedDataBagItem.load(
-  'passwords',
-  'mysql_atlasck_password',
-  password_secret)
+    'passwords',
+    'mysql_atlasck_password',
+    password_secret)
 
 mysql_database_user atlasck_password_data_bag_item['user'] do
     connection mysql_connection_info
