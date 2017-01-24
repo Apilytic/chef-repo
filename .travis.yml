@@ -22,4 +22,4 @@ env:
 matrix:
   include:
     - script:
-      - pwd
+      - cd cookbooks/lytc; /opt/chefdk/bin/chef exec rake spec
