@@ -19,6 +19,8 @@ env:
   matrix:
     - INSTANCE=debian-8
 
+script: cd cookbooks/lytc; /opt/chefdk/bin/chef exec rake spec
+
 matrix:
   include:
     - script:
