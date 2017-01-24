@@ -1,0 +1,25 @@
+sudo: required
+dist: trusty
+
+# install the pre-release chef-dk.  Use chef-stable-precise to install the stable release
+addons:
+  apt:
+    sources:
+      - chef-stable-trusty
+    packages:
+      - chefdk
+
+branches:
+  only:
+    - master
+
+services: docker
+
+env:
+  matrix:
+    - INSTANCE=debian-8
+
+matrix:
+  include:
+    - script:
+      - /opt/chefdk/bin/chef exec rake spec
