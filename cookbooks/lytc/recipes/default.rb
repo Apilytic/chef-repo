@@ -7,7 +7,7 @@
 include_recipe 'apt::default'
 
 apt_package 'apt-transport-https' do
-    options '--force-yes'
+  options '--force-yes'
 end
 
 package 'htop'
@@ -17,4 +17,4 @@ file '/root/.vimrc' do
   content 'syntax on'
 end
 
-#TODO swap configuration
+# TODO: swap configuration

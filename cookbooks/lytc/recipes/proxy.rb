@@ -7,5 +7,5 @@
 package 'nginx'
 
 service 'nginx' do
-    action :nothing
+  action :nothing
 end
