@@ -15,7 +15,7 @@ class Chef
           source 'mongodb.conf.erb'
           mode '0644'
           variables(
-            max_conns: MONGODB_MAX_CONNS
+              max_conns: MONGODB_MAX_CONNS
           )
         end
 
