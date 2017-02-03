@@ -4,13 +4,14 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-include_recipe 'apt::default'
+include_recipe 'apt::default' if platform_family?('debian')
 
 apt_package 'apt-transport-https' do
   options '--force-yes'
+  only_if { platform_family?('debian') }
 end
 
-package 'htop'
+include_recipe 'htop::default'
 package 'vim'
 
 file '/root/.vimrc' do
