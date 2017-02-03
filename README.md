@@ -1,9 +1,7 @@
 The chef-repo
 ===============
 
-[![Build Status](https://travis-ci.org/Apilytic/chef-repo.svg?branch=master)](https://travis-ci.org/Apilytic/chef-repo)
-
-[![Code Climate](https://codeclimate.com/github/Apilytic/chef-repo/badges/gpa.svg)](https://codeclimate.com/github/Apilytic/chef-repo)
+[![Build Status](https://travis-ci.org/Apilytic/chef-repo.svg?branch=master)](https://travis-ci.org/Apilytic/chef-repo) [![Code Climate](https://codeclimate.com/github/Apilytic/chef-repo/badges/gpa.svg)](https://codeclimate.com/github/Apilytic/chef-repo)
 
 All installations require a central workspace known as the chef-repo. This is a place where primitive objects--cookbooks, roles, environments, data bags, and chef-repo configuration files--are stored and managed.
 
