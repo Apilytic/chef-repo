@@ -19,15 +19,20 @@ More information about knife.rb configuration options can be found in [the docum
 
 Cookbooks
 ---------
-A cookbook is the fundamental unit of configuration and policy distribution. A sample cookbook can be found in `cookbooks/starter`. After making changes to any cookbook, you must upload it to the Chef server using knife:
 
-    $ knife upload cookbooks/starter
-
-For more information about cookbooks, see the example files in the `starter` cookbook.
+* lytc - basic cookbook
+* gitserver - install and configure gitserver
+* currency_converter - dev and prod env for currency-converter
+* atlasck - prod env for atlasck 
+* wiki - moin env for apilytic.org
+* zikraft - env for zikraft.org
 
 Roles
 -----
-Roles provide logical grouping of cookbooks and other roles. A sample role can be found at `roles/starter.rb`.
+
+* db - Database configuration and setup
+* proxy - Proxy configuration and setup for individual apps
+* version_control - Version control
 
 Getting Started
 -------------------------
