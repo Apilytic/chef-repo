@@ -1,9 +1,13 @@
-require 'spec_helper'
+describe package('htop') do
+  it { should be_installed }
+end
 
-describe 'lytc::default' do
-  # Serverspec examples can be found at
-  # http://serverspec.org/resource_types.html
-  it 'does something' do
-    skip 'Replace this with meaningful tests'
-  end
+describe command('vim --version') do
+  its(:exit_status) { should eq 0 }
+end
+
+describe file('/root/.vimrc') do
+  it { should be_file }
+  it { should exist }
+  its(:content) { should match /syntax on/ }
 end

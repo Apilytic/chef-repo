@@ -18,8 +18,9 @@ services: docker
 env:
   matrix:
     - INSTANCE=debian-8
+    - INSTANCE=centos-7
 
-script: cd cookbooks/lytc; /opt/chefdk/bin/chef exec rake spec
+script: cd cookbooks/lytc; KITCHEN_LOCAL_YAML=.kitchen.docker.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
 
 matrix:
   include:

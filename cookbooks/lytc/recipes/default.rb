@@ -11,8 +11,8 @@ apt_package 'apt-transport-https' do
   only_if { platform_family?('debian') }
 end
 
-include_recipe 'htop::default'
-package 'vim'
+include_recipe 'htop'
+include_recipe 'vim'
 
 file '/root/.vimrc' do
   content 'syntax on'
