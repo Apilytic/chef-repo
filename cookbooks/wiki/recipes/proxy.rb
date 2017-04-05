@@ -4,7 +4,7 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-%w(wiki.conf).each do|site|
+%w(wiki.conf).each do |site|
     cookbook_file "/etc/nginx/sites-available/#{site}" do
         source "proxy/#{site}"
     end
