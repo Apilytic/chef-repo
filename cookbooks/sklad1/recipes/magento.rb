@@ -20,3 +20,9 @@ docker_compose_application 'magento' do
   action :up
   compose_files [magento_compose]
 end
+
+user 'magento' do
+  comment 'Magento user'
+  shell '/bin/bash'
+  system true
+end
