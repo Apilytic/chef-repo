@@ -21,6 +21,12 @@ cookbook_file magento_compose do
   notifies :up, 'docker_compose_application[magento]', :delayed
 end
 
+%w(composer global).each do |file|
+  cookbook_file "/var/www/magento/#{file}.env" do
+    source "magento/#{file}.env"
+  end
+end
+
 docker_compose_application 'magento' do
   action :up
   compose_files [magento_compose]
