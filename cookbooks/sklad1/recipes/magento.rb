@@ -7,6 +7,11 @@
 include_recipe 'docker_compose::installation'
 
 directory '/var/www/magento'
+directory '/var/www/magento/src' do
+  owner 'magento'
+  group 'magento'
+  recursive true
+end
 
 magento_compose = '/var/www/magento/docker-compose.yml'
 
