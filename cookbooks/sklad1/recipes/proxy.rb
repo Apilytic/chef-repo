@@ -11,6 +11,6 @@
 
   link "/etc/nginx/sites-enabled/#{site}" do
     to "/etc/nginx/sites-available/#{site}"
-    notifies :reload, 'service[nginx]'
+    notifies :reload, 'service[nginx]', :immediately
   end
 end
