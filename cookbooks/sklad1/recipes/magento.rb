@@ -23,9 +23,9 @@ porto = '/var/www/porto'
   directory inst
 
   directory "#{inst}/src" do
-    owner 'magento'
-    group 'magento'
-    recursive true
+    owner 'www-data'
+    group 'www-data'
+    recursive false
   end
 
   %w(var pub/static pub/media).each do |dir|
@@ -35,6 +35,10 @@ porto = '/var/www/porto'
     end
   end
 
+  cookbook_file "#{inst}/perm.sh" do
+    source 'magento/perm.sh'
+  end
+  
   magento_compose = "#{inst}/docker-compose.yml"
 
   app_name = File.basename(inst)

@@ -13,10 +13,15 @@ execute 'unmask nginx service' do
   only_if {platform_family?('debian')}
 end
 
+service 'nginx' do
+  action :nothing
+end
 
 %w(magento.conf).each do |site|
-  cookbook_file "/etc/nginx/conf.d/#{site}" do
-    source "proxy/#{site}"
+  template "/etc/nginx/conf.d/#{site}" do
+    source "proxy/#{site}.erb"
     notifies :reload, 'service[nginx]', :immediately
   end
 end
+
+
