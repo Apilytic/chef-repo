@@ -17,8 +17,9 @@ end
 # magento instances
 quick_start = '/var/www/magento'
 porto = '/var/www/porto'
+ultimo = '/var/www/ultimo'
 
-[quick_start, porto].each do |inst|
+[quick_start, porto, ultimo].each do |inst|
 
   directory inst
 
@@ -37,8 +38,9 @@ porto = '/var/www/porto'
 
   cookbook_file "#{inst}/perm.sh" do
     source 'magento/perm.sh'
+    mode 00777
   end
-  
+
   magento_compose = "#{inst}/docker-compose.yml"
 
   app_name = File.basename(inst)
