@@ -61,4 +61,13 @@ ultimo = '/var/www/ultimo'
     action :up
     compose_files [magento_compose]
   end
+
+  logrotate_app "magento_log_rotate_#{::File.basename(inst)}" do
+    cookbook 'logrotate'
+    path "#{inst}/src/var/log/update.log"
+    frequency 'daily'
+    options %w(missingok compress delaycompress sharedscripts notifempty)
+    rotate 30
+    create '0644 magento magento'
+  end
 end
