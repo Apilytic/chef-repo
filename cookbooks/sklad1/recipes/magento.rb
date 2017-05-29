@@ -67,7 +67,6 @@ ultimo = '/var/www/ultimo'
     path "#{inst}/src/var/log/update.log"
     frequency 'daily'
     options %w(missingok compress delaycompress sharedscripts notifempty)
-    rotate 30
     create '0644 magento magento'
   end
 end
