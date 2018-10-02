@@ -14,6 +14,10 @@ user 'magento' do
   system true
 end
 
+directory '/var/www' do
+  recursive true
+end
+
 # magento instances
 quick_start = '/var/www/magento'
 porto = '/var/www/porto'
