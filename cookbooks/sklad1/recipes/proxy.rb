@@ -17,9 +17,9 @@ service 'nginx' do
   action :nothing
 end
 
-%w(magento.conf).each do |site|
-  template "/etc/nginx/conf.d/#{site}" do
-    source "proxy/#{site}.erb"
+%w(magento.conf proxy.conf).each do |conf|
+  template "/etc/nginx/conf.d/#{conf}" do
+    source "proxy/#{conf}.erb"
     notifies :reload, 'service[nginx]', :immediately
   end
 end

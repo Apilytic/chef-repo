@@ -10,23 +10,16 @@ server {
     client_max_body_size 2M;
 
     location ^~ /admin_ {
-        proxy_set_header   X-Real-IP        $remote_addr;
-        proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-        proxy_set_header   Host             $host;
-
         proxy_pass http://localhost:32770;
      }
 
      location / {
         access_log off;
 
-        proxy_set_header   X-Real-IP        $remote_addr;
-        proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-
         <% if node['sklad1']['magento']['is_prod_hidden'] -%>
-        proxy_pass http://porto-live.sklad1.bg:32770;
+        proxy_pass http://localhost:32770;
         <% else -%>
-        proxy_pass http://shop.sklad1.bg:32770;
+        proxy_pass http://localhost:32770;
         <% end -%>
      }
 
@@ -64,20 +57,13 @@ server {
     gzip_vary on;
 
     location ^~ /admin_ {
-        proxy_set_header   X-Real-IP        $remote_addr;
-        proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-        proxy_set_header   Host             $host;
-
         proxy_pass http://localhost:32774;
      }
 
      location / {
         access_log off;
 
-        proxy_set_header   X-Real-IP        $remote_addr;
-        proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-
-        proxy_pass http://porto.sklad1.bg:32774;
+        proxy_pass http://localhost:32774;
      }
 
      location /static/ {
@@ -154,20 +140,13 @@ server {
     client_max_body_size 2M;
 
     location ^~ /admin_ {
-        proxy_set_header   X-Real-IP        $remote_addr;
-        proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-        proxy_set_header   Host             $host;
-
         proxy_pass http://localhost:32778;
      }
 
      location / {
         access_log off;
 
-        proxy_set_header   X-Real-IP        $remote_addr;
-        proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-
-        proxy_pass http://ultimo.sklad1.bg:32778;
+        proxy_pass http://localhost:32779;
      }
 
 }
