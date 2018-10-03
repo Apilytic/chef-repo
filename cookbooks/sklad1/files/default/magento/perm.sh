@@ -3,7 +3,8 @@
 # Do NOT modify this file by hand!
 
 cd src
-chmod 0777 -R pub/static
-chmod 0777 -R pub/media
-chmod 0777 -R app/etc/
-chmod 0777 -R var
+chown www-data -R pub/static
+chown www-data -R pub/media
+chown www-data -R app/etc/
+chown www-data -R var
+chown www-data -R generated
