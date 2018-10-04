@@ -139,14 +139,37 @@ server {
 
     client_max_body_size 2M;
 
+    root /var/www/ultimo/src/pub;
+
+    gzip on;
+    gzip_disable "msie6";
+
+    gzip_comp_level 7;
+    gzip_min_length 1100;
+    gzip_buffers 16 8k;
+    gzip_proxied any;
+    gzip_types
+        text/plain
+        text/css
+        text/js
+        text/xml
+        text/javascript
+        application/javascript
+        application/x-javascript
+        application/json
+        application/xml
+        application/xml+rss
+        image/svg+xml;
+    gzip_vary on;
+
     location ^~ /admin_ {
         proxy_pass http://localhost:32778;
-     }
+    }
 
-     location / {
+    location / {
         access_log off;
 
         proxy_pass http://localhost:32779;
-     }
+    }
 
 }
