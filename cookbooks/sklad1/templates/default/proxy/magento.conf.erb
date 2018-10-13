@@ -5,9 +5,32 @@ server {
     <% if not node['sklad1']['magento']['is_prod_hidden'] -%>
     server_name shop.sklad1.bg;
     <% end -%>
-    server_name porto-live.sklad1.bg shop-admin.sklad1.bg;
+    server_name www.sklad1.bg;
 
     client_max_body_size 2M;
+
+    root /var/www/magento/src/pub;
+
+    gzip on;
+    gzip_disable "msie6";
+
+    gzip_comp_level 7;
+    gzip_min_length 1100;
+    gzip_buffers 16 8k;
+    gzip_proxied any;
+    gzip_types
+        text/plain
+        text/css
+        text/js
+        text/xml
+        text/javascript
+        application/javascript
+        application/x-javascript
+        application/json
+        application/xml
+        application/xml+rss
+        image/svg+xml;
+    gzip_vary on;
 
     location ^~ /admin_ {
         proxy_pass http://localhost:32770;
