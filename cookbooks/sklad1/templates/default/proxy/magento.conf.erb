@@ -7,6 +7,11 @@ server {
     <% end -%>
     server_name www.sklad1.bg;
 
+    allow 91.139.234.236;
+    allow 78.83.64.189;
+    allow 95.87.10.78;
+    deny all;
+
     client_max_body_size 2M;
 
     root /var/www/magento/src/pub;
