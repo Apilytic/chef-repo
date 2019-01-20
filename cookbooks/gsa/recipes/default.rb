@@ -19,7 +19,7 @@ service 'docker' do
 end
 
 group 'docker' do
-  action :modify
   members 'ec2-user'
   append true
+  action :modify
 end
