@@ -14,3 +14,6 @@ bash 'install docker-compose' do
   not_if {File::exists?('/usr/local/bin/docker-compose')}
 end
 
+service 'docker' do
+  action :start
+end
