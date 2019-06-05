@@ -25,6 +25,3 @@ group 'docker' do
   append true
   action :modify
 end
-
-chef_gem 'sinatra'
-chef_gem 'thread'
