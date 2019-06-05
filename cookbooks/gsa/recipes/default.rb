@@ -18,8 +18,10 @@ service 'docker' do
   action :start
 end
 
+user_name = node['gsa']['user']['name']
+
 group 'docker' do
-  members 'ec2-user'
+  members user_name
   append true
   action :modify
 end
