@@ -4,7 +4,7 @@
 #
 # Copyright (c) 2019 The Authors, All Rights Reserved.
 
-aws_user, aws_password = decrypt_passwords_data_bag_item(node['gsa']['secret_path'], 'gsa_codedeploy_password')
+aws_user, aws_password = decrypt_passwords_data_bag_item(node['gsa']['secret_path'].to_s, 'gsa_codedeploy_password')
 
 bash 'attach eip' do
   environment ({AWS_ACCESS_KEY_ID: aws_user, AWS_SECRET_ACCESS_KEY: aws_password, AWS_DEFAULT_REGION: "eu-west-1"})
