@@ -25,3 +25,12 @@ group 'docker' do
   append true
   action :modify
 end
+
+cookbook_file '/etc/cron.d/gsa_reboot' do
+  source 'default/gsa_reboot'
+  notifies :restart, 'service[crond]'
+end
+
+service 'crond' do
+  action :nothing
+end

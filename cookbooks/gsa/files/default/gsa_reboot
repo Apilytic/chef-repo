@@ -1,0 +1,3 @@
+# Crontab for gsa_reboot managed by Chef. Changes will be overwritten.
+
+@reboot root /opt/chef/bin/chef-client -o role[gsa_reboot]

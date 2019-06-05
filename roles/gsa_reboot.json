@@ -1,0 +1,13 @@
+{
+  "name": "gsa_reboot",
+  "description": "Start up service after reboot",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {},
+  "override_attributes": {},
+  "run_list": [
+    "recipe[lytc::default]",
+    "recipe[gsa::eip]",
+    "recipe[gsa::webserver]"
+  ]
+}
