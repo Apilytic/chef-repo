@@ -29,3 +29,11 @@ bash 'sync backups' do
   aws s3 cp #{mysql_backup_name} s3://gsa-db-backup/#{mysql_backup_name}
   EOH
 end
+
+bash 'clean backups' do
+  cwd '/var/www/gsa/docker'
+  code <<-EOH
+  rm -rf #{postgres_backup_name}
+  rm -rf #{mysql_backup_name}
+  EOH
+end
