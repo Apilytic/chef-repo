@@ -1,0 +1,12 @@
+{
+  "name": "gsa_backup",
+  "description": "Database backup",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {},
+  "override_attributes": {},
+  "run_list": [
+    "recipe[lytc::default]",
+    "recipe[gsa::backups]"
+  ]
+}
