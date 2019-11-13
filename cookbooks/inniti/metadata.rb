@@ -1,6 +1,6 @@
 name 'inniti'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Georgi Lambov'
+maintainer_email 'georgi.lambov@gmail.com'
 license 'all_rights'
 description 'Installs/Configures inniti'
 long_description 'Installs/Configures inniti'
