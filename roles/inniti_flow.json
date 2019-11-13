@@ -1,0 +1,16 @@
+{
+  "name": "inniti_flow",
+  "description": "Java app flow and dependencies",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "java": {
+      "install_flavor": "openjdk",
+      "jdk_version": "8"
+    }
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[java]"
+  ]
+}
