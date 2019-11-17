@@ -15,3 +15,4 @@ version '0.1.0'
 # source_url 'https://github.com/<insert_org_here>/inniti' if respond_to?(:source_url)
 
 depends 'java', '~> 4.3.0'
+depends 'maven', '~> 5.3.0'
