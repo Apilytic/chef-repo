@@ -21,5 +21,3 @@ template "#{cwd}/start.sh" do
 end
 
 execute 'systemctl enable flow_mes.service'
-
-
