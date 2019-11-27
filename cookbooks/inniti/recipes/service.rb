@@ -6,6 +6,11 @@
 
 cwd = node['inniti']['flow']['dir']['target']
 
+directory cwd do
+  owner node['inniti']['user']['name']
+  group node['inniti']['user']['name']
+end
+
 execute 'systemctl daemon-reload' do
   action :nothing
 end

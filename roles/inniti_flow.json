@@ -12,6 +12,7 @@
   "override_attributes": {},
   "run_list": [
     "recipe[java]",
-    "recipe[maven]"
+    "recipe[maven]",
+    "recipe[inniti]"
   ]
 }

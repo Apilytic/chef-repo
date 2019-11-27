@@ -1,0 +1,20 @@
+{
+  "name": "inniti_deploy_aquaporin",
+  "description": "Deploy flow jar app",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {},
+  "override_attributes": {
+    "inniti": {
+      "flow": {
+        "config": {
+          "name": "config-aquaporin.properties"
+        }
+      }
+    }
+  },
+  "run_list": [
+    "recipe[inniti::build]",
+    "recipe[inniti::deploy]"
+  ]
+}

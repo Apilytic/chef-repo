@@ -4,7 +4,8 @@
 #
 # Copyright (c) 2019 The Authors, All Rights Reserved.
 
-template_prop = "#{node['inniti']['flow']['dir']['src']}#{node['inniti']['flow']['config'][node.environment]}"
+config_file = node['inniti']['flow']['config']
+template_prop = "#{node['inniti']['flow']['dir']['src']}#{config_file['path']}/#{config_file['name']}"
 config = File.dirname(template_prop) + '/config.properties'
 
 remote_file config do
