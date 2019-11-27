@@ -23,6 +23,7 @@ end
 
 template "#{cwd}/start.sh" do
   source 'flow_mes/start.sh.erb'
+  mode 00777
 end
 
 execute 'systemctl enable flow_mes.service'
