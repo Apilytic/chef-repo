@@ -7,6 +7,7 @@ User=<%= @user || node['inniti']['user']['name'] %>
 Type=forking
 WorkingDirectory=<%= @working_dir %>
 ExecStart=<%= @working_dir %>/start.sh
+ExecStop=/usr/bin/docker stop flow_mes
 TimeoutStopSec=10
 Restart=on-failure
 RestartSec=5
