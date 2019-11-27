@@ -13,6 +13,10 @@ remote_file config do
   user node['inniti']['user']['name']
 end
 
+execute 'docker openjdk8' do
+  command 'docker pull openjdk:8'
+end
+
 bash 'build Flow_mess app' do
   cwd node['inniti']['flow']['dir']['src']
   code <<-EOH
