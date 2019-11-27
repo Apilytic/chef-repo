@@ -15,8 +15,4 @@ remote_file deployed_app do
   group node['inniti']['user']['name']
 end
 
-chef_sleep 'waiting for connection close' do
-  seconds 60
-end
-
 execute 'systemctl start flow_mes.service'
