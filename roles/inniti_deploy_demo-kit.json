@@ -1,5 +1,5 @@
 {
-  "name": "inniti_deploy_demo_kit",
+  "name": "inniti_deploy_demo-kit",
   "description": "Deploy flow jar app",
   "chef_type": "role",
   "json_class": "Chef::Role",
