@@ -1,5 +1,5 @@
 {
-  "name": "inniti_deploy_prod",
+  "name": "inniti_deploy_office",
   "description": "Deploy flow jar app",
   "chef_type": "role",
   "json_class": "Chef::Role",
