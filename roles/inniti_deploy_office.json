@@ -6,6 +6,8 @@
   "default_attributes": {},
   "override_attributes": {},
   "run_list": [
+    "recipe[lytc::default]",
+    "recipe[inniti::repository]",
     "recipe[inniti::build]",
     "recipe[inniti::deploy]"
   ]
