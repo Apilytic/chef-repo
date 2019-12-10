@@ -6,12 +6,19 @@ module LytcCookbook
 
     def decrypt_passwords_data_bag_item(secret_path, item)
       secret = encrypted_password_secret(secret_path)
-      data_bag_item = Chef::EncryptedDataBagItem.load('passwords', item,
-                                                      secret)
+      data_bag_item = Chef::EncryptedDataBagItem.load('passwords', item, secret)
+
       if data_bag_item['user']
         return data_bag_item['user'], data_bag_item['password']
       end
       data_bag_item['password']
+    end
+
+    def decrypt_keys_data_bag_item(secret_path, item)
+      secret = encrypted_password_secret(secret_path)
+      data_bag_item = Chef::EncryptedDataBagItem.load('keys', item, secret)
+
+      data_bag_item['key']
     end
   end
 end
