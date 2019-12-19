@@ -8,4 +8,6 @@ default['inniti']['flow']['jar'] = 'Flow_MES-1.0-jar-with-dependencies.jar'
 default['inniti']['user']['name'] = 'inniti'
 default['inniti']['user']['home'] = '/home/inniti'
 
+default['inniti']['git']['branch'] = 'master'
+
 default['inniti']['secret_path'] = '/etc/chef/encrypted_data_bag_secret'

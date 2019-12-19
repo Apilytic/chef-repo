@@ -8,6 +8,7 @@ package 'git'
 
 repo_dir = node['inniti']['flow']['dir']['repository']
 user = node['inniti']['user']['name']
+branch = node['inniti']['git']['branch']
 
 directory repo_dir do
   recursive true
@@ -37,7 +38,7 @@ end
 
   git "#{repo_dir}/#{repo}" do
     repository "git@gitlab.com:INNITI/#{repo}.git"
-    reference 'master'
+    reference branch
     ssh_wrapper wrapper
     user user
     group user
