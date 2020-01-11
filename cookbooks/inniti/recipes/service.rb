@@ -15,6 +15,12 @@ execute 'systemctl daemon-reload' do
   action :nothing
 end
 
+start_service = 'flow_mes/start.sh.erb'
+
+if node['inniti']['service']['local_flow']
+  start_service = 'flow_mes/start_local_flow.sh.erb'
+end
+
 template '/etc/systemd/system/flow_mes.service' do
   source 'flow_mes/flow_mes.service.erb'
   variables(working_dir: cwd)
@@ -22,7 +28,7 @@ template '/etc/systemd/system/flow_mes.service' do
 end
 
 template "#{cwd}/start.sh" do
-  source 'flow_mes/start.sh.erb'
+  source start_service
   mode 00777
 end
 

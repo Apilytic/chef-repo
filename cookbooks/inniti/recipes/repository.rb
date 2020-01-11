@@ -16,6 +16,12 @@ directory repo_dir do
   group user
 end
 
+directory node['inniti']['flow']['dir']['stage'] do
+  recursive true
+  owner user
+  group user
+end
+
 %w(FLOW).each do |repo|
   wrapper = "#{repo_dir}/git_wrapper_#{repo}.sh"
 
