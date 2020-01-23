@@ -1,0 +1,9 @@
+{
+  "id": "inniti_vpn_server_name_key",
+  "key": {
+    "encrypted_data": "6O+aVKdLN36PBdSkVzz6XnynEPlmt/LN/Mx7aP0xnSWBS7qCGNpqIJk0CEKG\nGh1fyFRqi5xpMXRy0iyYqkvQ6dqi5Uu5W+OgGmcbLWu93v8EKIkqEhjy3K9F\nGCN15FRb\n",
+    "iv": "297vLwQUMpw2ZR3lq4gUhw==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}

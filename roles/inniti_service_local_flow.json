@@ -13,6 +13,7 @@
     }
   },
   "run_list": [
-    "recipe[inniti::service]"
+    "recipe[inniti::service]",
+    "recipe[inniti::vpn]"
   ]
 }

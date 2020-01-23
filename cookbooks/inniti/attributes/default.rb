@@ -13,4 +13,8 @@ default['inniti']['service']['local_flow'] = false
 
 default['inniti']['git']['branch'] = 'master'
 
+default['inniti']['vpn']['dir']['stage'] = '/usr/local/etc/vpn'
+default['inniti']['vpn']['server'] = 'inniti_vpn_server_name_key'
+default['inniti']['vpn']['client'] = 'client'
+
 default['inniti']['secret_path'] = '/etc/chef/encrypted_data_bag_secret'
