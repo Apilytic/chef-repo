@@ -49,3 +49,5 @@ directory(vpn_cwd) {action :nothing}
 execute 'ipsec restart' do
   action :nothing
 end
+
+directory(vpn_cwd) {action :delete}
