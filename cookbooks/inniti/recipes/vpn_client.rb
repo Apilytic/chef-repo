@@ -5,7 +5,7 @@
 # Copyright (c) 2020 The Authors, All Rights Reserved.
 
 client = node['inniti']['vpn']['client']
-password = decrypt_passwords_data_bag_item(secret, "inniti_vpn_#{client}_password")
+password = unique_password
 vpn_server = decrypt_keys_data_bag_item(secret, node['inniti']['vpn']['server'])
 vpn_cwd = node['inniti']['vpn']['dir']['stage']
 
@@ -34,7 +34,7 @@ end
 
 template '/etc/ipsec.conf' do
   source 'ipsec/ipsec.conf.erb'
-  variables(vpn_server: vpn_server)
+  variables(client: client, vpn_server: vpn_server)
   notifies :run, 'execute[ipsec restart]'
 end
 

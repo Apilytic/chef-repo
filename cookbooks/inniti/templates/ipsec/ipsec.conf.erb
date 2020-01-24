@@ -36,7 +36,7 @@ conn azure
       leftfirewall=yes
       left=%any
       leftauth=eap-tls
-      leftid=%client
+      leftid=%<%= @client %>
       right=<%= @vpn_server %>
       rightid=%<%= @vpn_server %>
       rightsubnet=0.0.0.0/0
