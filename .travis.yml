@@ -30,8 +30,3 @@ before_script:
   - /opt/chefdk/embedded/bin/foodcritic --version
 
 script: cd cookbooks/lytc; KITCHEN_LOCAL_YAML=.kitchen.docker.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
-
-matrix:
-  include:
-    - script:
-      - cd cookbooks/lytc; /opt/chefdk/bin/chef exec rake spec
