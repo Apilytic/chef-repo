@@ -11,6 +11,10 @@ db_user, db_password = decrypt_passwords_data_bag_item(secret, 'inniti_mysql_pas
 bash 'initial db dump' do
   cwd '/var/www/inniti/docker'
   code <<-EOH
-docker-compose exec -T mysql_app mysqldump --add-drop-table --hex-blob -u#{db_user} -p#{db_password} inniti > inniti.sql
+docker-compose exec -T mysql_app mysqldump -c --single-transaction --add-drop-table \
+--hex-blob --skip-add-drop-table inniti units unit_types unit_types_measurements abilities \
+ability_units -u#{db_user} -p#{db_password} > inniti.sql
   EOH
 end
+
+
