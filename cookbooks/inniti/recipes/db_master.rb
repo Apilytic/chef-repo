@@ -15,6 +15,7 @@ docker-compose exec -T mysql_app mysqldump -c --single-transaction --add-drop-ta
 --hex-blob --skip-add-drop-table inniti units unit_types unit_types_measurements abilities \
 ability_units -u#{db_user} -p#{db_password} > inniti.sql
   EOH
+  sensitive true
 end
 
 
