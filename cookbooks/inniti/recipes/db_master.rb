@@ -26,3 +26,8 @@ template '/var/www/inniti/docker/replication_user.sql' do
   group node['inniti']['user']['name']
 end
 
+template '/var/www/inniti/docker/post_import.sql' do
+  source 'db_master/post_import.sql.erb'
+  user node['inniti']['user']['name']
+  group node['inniti']['user']['name']
+end
