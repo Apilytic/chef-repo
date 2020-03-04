@@ -24,3 +24,9 @@ template '/var/www/inniti/docker/change_master.sql' do
   user node['inniti']['user']['name']
   group node['inniti']['user']['name']
 end
+
+template '/var/www/inniti/docker/column_reorder.sql' do
+  source 'db_slave/column_reorder.sql.erb'
+  user node['inniti']['user']['name']
+  group node['inniti']['user']['name']
+end

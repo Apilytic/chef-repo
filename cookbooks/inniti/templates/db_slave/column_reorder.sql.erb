@@ -1,0 +1,3 @@
+ALTER TABLE `inniti`.`units`
+CHANGE COLUMN `display_name` `display_name` VARCHAR(255) NULL DEFAULT NULL AFTER `updated_at`,
+CHANGE COLUMN `state` `state` TINYINT(1) NOT NULL AFTER `display_name`;
