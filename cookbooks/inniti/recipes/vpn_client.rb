@@ -44,10 +44,13 @@ template '/etc/ipsec.secrets' do
   notifies :run, 'execute[ipsec restart]'
 end
 
-directory(vpn_cwd) {action :nothing}
+directory(vpn_cwd) { action :nothing }
 
 execute 'ipsec restart' do
   action :nothing
 end
 
-directory(vpn_cwd) {action :delete}
+directory(vpn_cwd) {
+  action :delete
+  recursive true
+}
