@@ -14,7 +14,7 @@ bash 'initial db dump' do
   code <<-EOH
 docker-compose exec -T mysql_app mysqldump -c --single-transaction --add-drop-table \
 --hex-blob --skip-add-drop-table inniti \
-units unit_types unit_type_abilities unit_types_measurements abilities \
+#{node['inniti']['global_db']['master']['tables'].join(' ')} \
 ability_units -u#{db_user} -p#{db_password} > inniti.sql
   EOH
   sensitive true

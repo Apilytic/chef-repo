@@ -18,5 +18,14 @@ default['inniti']['vpn']['server'] = 'inniti_vpn_server_name_key'
 default['inniti']['vpn']['client'] = 'client'
 
 default['inniti']['global_db']['server_id'] = 2
+default['inniti']['global_db']['master']['tables'] = %w(units
+                                                        unit_types
+                                                        unit_type_abilities
+                                                        unit_type_live_abilities
+                                                        unit_types_measurements
+                                                        live_abilities
+                                                        companies
+                                                        abilities
+                                                        )
 
 default['inniti']['secret_path'] = '/etc/chef/encrypted_data_bag_secret'
