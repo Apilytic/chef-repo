@@ -1,0 +1,9 @@
+{
+  "id": "inniti_global_db_name_key",
+  "key": {
+    "encrypted_data": "K/OZ/0wlac5rsWEXXCAyJeTKlnxl6uFkaPghzMcR5Q0/594R1Cyq388YQK7H\nN8LbkRfmJydGvo7gLV/hQQ8dCQ==\n",
+    "iv": "itVlznYYsd3t7uYnrP3N0Q==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}
