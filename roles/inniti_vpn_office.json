@@ -13,6 +13,7 @@
   },
   "run_list": [
     "recipe[lytc::default]",
+    "recipe[inniti::service_volume]",
     "recipe[inniti::vpn_client]"
   ]
 }

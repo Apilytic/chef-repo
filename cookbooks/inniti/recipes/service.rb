@@ -16,10 +16,6 @@ execute 'systemctl daemon-reload' do
   action :nothing
 end
 
-bash 'log volume' do
-  code "docker volume create #{log_volume}"
-end
-
 template '/etc/systemd/system/flow_mes.service' do
   source 'flow_mes/flow_mes.service.erb'
   variables(working_dir: cwd)
