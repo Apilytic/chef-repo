@@ -5,6 +5,7 @@
 # Copyright (c) 2019 The Authors, All Rights Reserved.
 
 cwd = node['inniti']['flow']['dir']['target']
+log_volume = node['inniti']['service']['volume']['log']
 
 directory cwd do
   owner node['inniti']['user']['name']
@@ -15,10 +16,8 @@ execute 'systemctl daemon-reload' do
   action :nothing
 end
 
-start_service = 'flow_mes/start.sh.erb'
-
-if node['inniti']['service']['local_flow']
-  start_service = 'flow_mes/start_local_flow.sh.erb'
+bash 'log volume' do
+  code "docker volume create #{log_volume}"
 end
 
 template '/etc/systemd/system/flow_mes.service' do
@@ -27,8 +26,11 @@ template '/etc/systemd/system/flow_mes.service' do
   notifies :run, 'execute[systemctl daemon-reload]', :immediately
 end
 
+start_service = node['inniti']['service']['local_flow'] ? 'flow_mes/start_local_flow.sh.erb' : 'flow_mes/start.sh.erb'
+
 template "#{cwd}/start.sh" do
   source start_service
+  variables(log_volume: log_volume)
   mode 00777
 end
 

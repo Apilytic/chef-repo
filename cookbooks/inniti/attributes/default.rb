@@ -10,6 +10,7 @@ default['inniti']['user']['home'] = '/home/inniti'
 
 default['inniti']['service']['flow'] = true
 default['inniti']['service']['local_flow'] = false
+default['inniti']['service']['volume']['log'] = 'flow_mes_log'
 
 default['inniti']['git']['branch'] = 'master'
 
