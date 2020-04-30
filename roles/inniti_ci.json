@@ -1,0 +1,17 @@
+{
+  "name": "inniti_ci",
+  "description": "CI jenkins, provide special attributes.",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {},
+  "override_attributes": {
+    "inniti": {
+      "ssl": {
+        "location": "/var/www/ci/proxy/etc"
+      }
+    }
+  },
+  "run_list": [
+    "recipe[lytc::default]"
+  ]
+}

@@ -18,6 +18,8 @@ default['inniti']['vpn']['dir']['stage'] = '/usr/local/etc/vpn'
 default['inniti']['vpn']['server'] = 'inniti_vpn_server_name_key'
 default['inniti']['vpn']['client'] = 'client'
 
+default['inniti']['ssl']['location'] = '/var/www/inniti/docker/proxy/etc'
+
 default['inniti']['global_db']['server_id'] = 2
 default['inniti']['global_db']['master']['tables'] = %w(units
                                                         unit_types
